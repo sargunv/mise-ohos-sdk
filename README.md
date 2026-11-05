@@ -1,4 +1,4 @@
-# vfox-ohos-sdk
+# mise-ohos-sdk
 
 A [mise](https://mise.jdx.dev) plugin that installs the
 [OpenHarmony](https://www.openharmony.cn) SDK from its public release archives.
@@ -10,7 +10,7 @@ pinned to a tag:
 
 ```toml
 [plugins]
-ohos-sdk = "https://github.com/sargunv/vfox-ohos-sdk#v0.1.0"
+ohos-sdk = "https://github.com/sargunv/mise-ohos-sdk#v0.1.0"
 
 [tools]
 ohos-sdk = "6.1"

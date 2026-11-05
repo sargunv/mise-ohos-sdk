@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#MISE description="Run the plugin's hooks against stubs and a miniature SDK archive, offline."
+# The tests stub out the network. To try the plugin against the real SDK, see
+# AGENTS.md.
+set -euo pipefail
+
+plugin_dir="$MISE_PROJECT_ROOT"
+status=0
+for test in "$plugin_dir"/test/*_test.lua; do
+  echo "# ${test#"$plugin_dir"/}"
+  lua "$test" "$plugin_dir" || status=1
+done
+exit "$status"

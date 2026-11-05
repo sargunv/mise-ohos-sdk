@@ -21,10 +21,6 @@
         "command": "stylua --stdin-filepath {{file_path}} -",
         "exts": ["lua"],
       },
-      {
-        "command": "shfmt --indent 2 --filename {{file_path}}",
-        "exts": ["sh"],
-      },
     ],
   },
   "plugins": [

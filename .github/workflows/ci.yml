@@ -1,4 +1,4 @@
-name: Test
+name: CI
 
 on:
   push:
@@ -10,25 +10,13 @@ permissions:
   contents: read
 
 concurrency:
-  group: test-${{ github.ref }}
+  group: ci-${{ github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 jobs:
-  check:
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
-        with:
-          version: 2026.11.0
-      - run: mise run check
-
-  # The post-install test runs the hook's shell commands for real, so it runs on
-  # both hosts the plugin supports.
-  test:
+  # `mise run ci` runs the linters and the tests. The post-install test runs the
+  # hook's shell commands for real, so it runs on both hosts the plugin supports.
+  ci:
     strategy:
       fail-fast: false
       matrix:
@@ -42,4 +30,4 @@ jobs:
       - uses: jdx/mise-action@f5be966e4a917d54244728e6a5fdcd1d93a35e6c # v5.2.6
         with:
           version: 2026.11.0
-      - run: mise run test
+      - run: mise run ci
