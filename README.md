@@ -67,5 +67,5 @@ See [AGENTS.md](AGENTS.md).
 
 ## License
 
-BSD-2-Clause. See [LICENSE](LICENSE). The plugin started in
+MIT. See [LICENSE](LICENSE). The plugin started in
 [MapLibre Native FFI](https://github.com/maplibre/maplibre-native-ffi).

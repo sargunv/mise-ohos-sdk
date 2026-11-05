@@ -11,5 +11,5 @@ PLUGIN = {
   description = "OpenHarmony native SDK and device tools",
   author = "sargunv",
   homepage = "https://github.com/sargunv/mise-ohos-sdk",
-  license = "BSD-2-Clause",
+  license = "MIT",
 }
