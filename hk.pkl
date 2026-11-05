@@ -1,0 +1,21 @@
+amends "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Config.pkl"
+import "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Builtins.pkl"
+
+// dprint formats every file, including Lua through StyLua and shell through
+// shfmt. The other steps lint.
+steps {
+  ["dprint"] = Builtins.dprint
+  ["jactionlint"] = Builtins.jactionlint
+  ["shellcheck"] = Builtins.shellcheck
+  ["ruff"] {
+    glob = List("**/*.py")
+    check = "ruff check {{files}}"
+    fix = "ruff check --fix {{files}}"
+  }
+  // The language server checks the workspace as a whole, against the runtime
+  // definitions in types/.
+  ["lua-language-server"] {
+    glob = List("**/*.lua", ".luarc.json")
+    check = "lua-language-server --check . --checklevel=Hint"
+  }
+}

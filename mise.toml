@@ -1,0 +1,31 @@
+[settings]
+experimental = true
+pin = true
+lockfile = true
+
+[tools]
+"aqua:JohnnyMorganz/StyLua" = "2.6.0"
+"aqua:LuaLS/lua-language-server" = "3.19.2"
+"aqua:astral-sh/ruff" = "0.17.3"
+"aqua:dprint/dprint" = "0.64.3"
+"aqua:jdx/jactionlint" = "2.4.0"
+"aqua:koalaman/shellcheck" = "0.11.0"
+"aqua:mvdan/sh" = "3.14.1"
+"conda:lua" = "5.1.5"
+"github:jdx/hk" = "2.11.1"
+"core:python" = "3.15.2"
+
+[tasks.check]
+description = "Run every formatter and linter in report-only mode."
+run = "hk check --all"
+
+[tasks.fix]
+description = "Apply every formatter and auto-fixable lint."
+run = "hk fix --all"
+
+[tasks.test]
+description = "Run the plugin's hooks against stubs and a miniature SDK archive, offline."
+run = "test/run.sh"
+
+[hooks]
+postinstall = ["hk install --mise"]

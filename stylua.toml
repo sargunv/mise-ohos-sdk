@@ -1,0 +1,5 @@
+# StyLua's defaults, with the line width and two-space indent that dprint uses
+# for every other language here.
+column_width = 80
+indent_type = "Spaces"
+indent_width = 2
