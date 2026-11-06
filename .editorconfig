@@ -1,0 +1,4 @@
+# shfmt reads its indent from here.
+[{*.sh,mise-tasks/*}]
+indent_style = space
+indent_size = 2

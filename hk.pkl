@@ -1,11 +1,13 @@
 amends "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Config.pkl"
 import "package://github.com/jdx/hk/releases/download/v2.11.1/hk@2.11.1#/Builtins.pkl"
 
-// dprint formats every file, including Lua through StyLua and shell through
-// shfmt. The other steps lint.
+// dprint formats every file, including Lua through StyLua, except shell
+// scripts. shfmt formats those, because dprint can't select a file by its
+// shebang, and mise file tasks have no extension. The other steps lint.
 steps {
   ["dprint"] = Builtins.dprint
   ["jactionlint"] = Builtins.jactionlint
+  ["shfmt"] = Builtins.shfmt
   ["shellcheck"] = Builtins.shellcheck
   ["ruff"] {
     glob = List("**/*.py")

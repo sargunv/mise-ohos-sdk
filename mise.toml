@@ -25,9 +25,10 @@ run = "hk check --all"
 description = "Apply every formatter and auto-fixable lint."
 run = "hk fix --all"
 
-[tasks.test]
-description = "Run the plugin's hooks against stubs and a miniature SDK archive, offline."
-run = "test/run.sh"
+# `test` is the file task in mise-tasks/.
+[tasks.ci]
+description = "Run every check that CI runs."
+depends = ["check", "test"]
 
 [hooks]
 postinstall = ["hk install --mise"]

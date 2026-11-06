@@ -10,6 +10,6 @@ PLUGIN = {
   version = "0.1.0",
   description = "OpenHarmony native SDK and device tools",
   author = "sargunv",
-  homepage = "https://github.com/sargunv/vfox-ohos-sdk",
-  license = "BSD-2-Clause",
+  homepage = "https://github.com/sargunv/mise-ohos-sdk",
+  license = "MIT",
 }

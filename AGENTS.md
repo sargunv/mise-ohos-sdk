@@ -1,4 +1,4 @@
-# vfox-ohos-sdk
+# mise-ohos-sdk
 
 A mise (vfox) plugin that installs the OpenHarmony SDK.
 
@@ -12,9 +12,9 @@ hooks/
   post_install.lua   Keeps the native, toolchains, and ets components; links hdc into bin/
   env_keys.lua       Sets OHOS_SDK_NATIVE and OHOS_NDK_HOME, and puts bin/ on PATH
 lib/extract_zip.py   Unzips a component, keeping symbolic links and modes
+mise-tasks/test      Runs every test/*_test.lua
 types/               LuaCATS definitions of mise's vfox runtime, for lua-language-server
 test/
-  run.sh             Runs every *_test.lua
   helpers.lua        Loads a hook with stubbed mise modules; assertions
   make_sdk.py        Lays out a miniature SDK archive for the post-install test
   fixtures/          A snapshot of the release index
@@ -23,6 +23,7 @@ test/
 ## Dev tool commands
 
 - `mise run test`: run the hooks against stubs and a miniature archive, offline.
+- `mise run ci`: run `check` and `test`, as CI does.
 - `mise run check`: run every formatter and linter (hk, which drives dprint,
   StyLua, shfmt, ruff, shellcheck, lua-language-server, and jactionlint).
 - `mise run fix`: apply formatters and auto-fixable lints.
